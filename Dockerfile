@@ -23,9 +23,13 @@ WORKDIR /home/github-runner
 USER github-runner
 
 # Download and install the runner
-RUN curl -o actions-runner-linux-arm-2.311.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.311.0/actions-runner-linux-arm-2.311.0.tar.gz \
-    && tar xzf ./actions-runner-linux-arm-2.311.0.tar.gz \
-    && rm actions-runner-linux-arm-2.311.0.tar.gz
+RUN curl -o actions-runner-linux-arm-2.325.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.325.0/actions-runner-linux-arm-2.325.0.tar.gz \
+    && tar xzf ./actions-runner-linux-arm-2.325.0.tar.gz \
+    && rm actions-runner-linux-arm-2.325.0.tar.gz
+
+# Create necessary directories with proper permissions
+RUN mkdir -p _work _update && \
+    chmod -R 777 _work _update
 
 # Copy the entrypoint script
 COPY --chown=github-runner:github-runner entrypoint.sh /home/github-runner/entrypoint.sh
