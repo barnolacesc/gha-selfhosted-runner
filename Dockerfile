@@ -27,9 +27,9 @@ RUN curl -o actions-runner-linux-arm-2.325.0.tar.gz -L https://github.com/action
     && tar xzf ./actions-runner-linux-arm-2.325.0.tar.gz \
     && rm actions-runner-linux-arm-2.325.0.tar.gz
 
-# Create necessary directories with proper permissions
-RUN mkdir -p _work _update && \
-    chmod -R 777 _work _update
+# Create all necessary directories with proper permissions
+RUN mkdir -p _work _update _tool && \
+    chmod -R 777 _work _update _tool
 
 # Copy the entrypoint script
 COPY --chown=github-runner:github-runner entrypoint.sh /home/github-runner/entrypoint.sh
