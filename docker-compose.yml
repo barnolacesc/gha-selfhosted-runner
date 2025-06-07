@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  github-runner:
+    build: .
+    container_name: github-runner
+    restart: unless-stopped
+    environment:
+      - REPO_URL=${REPO_URL}
+      - RUNNER_TOKEN=${RUNNER_TOKEN}
+      - RUNNER_NAME=${RUNNER_NAME}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Optional: Only if you need to run Docker commands
+      - ./runner-data:/home/github-runner/_work    # Persist runner data 
