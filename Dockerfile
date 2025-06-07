@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     sudo \
     git \
     jq \
+    libicu-dev \
+    libicu66 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user
