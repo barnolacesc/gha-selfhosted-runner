@@ -1,10 +1,10 @@
 # GitHub Actions Self-Hosted Runner for Raspberry Pi
 
-This repository contains the configuration for running a GitHub Actions self-hosted runner in a Docker container on a Raspberry Pi 3B+.
+This repository contains the configuration for running a GitHub Actions self-hosted runner in a Docker container on a Raspberry Pi running 64-bit OS (aarch64/arm64).
 
 ## Prerequisites
 
-- Raspberry Pi 3B+ running Raspberry Pi OS or similar
+- Raspberry Pi running 64-bit OS (aarch64/arm64)
 - Docker and Docker Compose installed
 - GitHub repository where you want to add the runner
 
@@ -62,8 +62,8 @@ docker-compose logs -f
 
 ## Resource Usage
 
-This setup is optimized for minimal resource usage on a Raspberry Pi 3B+:
-- Uses ARM32v7 base image
+This setup is optimized for minimal resource usage on a Raspberry Pi:
+- Uses ARM64 base image
 - Minimal package installation
 - Automatic cleanup of temporary files
 - Efficient runner configuration

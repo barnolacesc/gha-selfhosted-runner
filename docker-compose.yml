@@ -8,10 +8,8 @@ services:
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_NAME=${RUNNER_NAME}
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock  # Optional: Only if you need to run Docker commands
-      - ./runner-data:/home/github-runner/_work    # Bind mount for runner data
+      - runner-work:/home/github-runner/_work    # Named volume for runner work directory
     user: "1000:1000"  # Use your user's UID:GID
-    privileged: true   # Give container privileged access for better permissions handling
 
 volumes:
   runner-work:
